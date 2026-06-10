@@ -2,18 +2,18 @@ import { useEffect, useState } from "react";
 
 export function Title() {
 
-    const [test, setTest] = useState("");
+  const [test, setTest] = useState("");
 
-    useEffect(() => {
-        fetch("/api/test")
-        .then(res => res.text())
-        .then(data => setTest(data));
-    }, []);
+  useEffect(() => {
+    fetch("/api/test")
+    .then(res => res.text())
+    .then(data => setTest(data));
+  }, []);
 
-    return (
-        <div>
-            <h2>test below</h2>
-            <h1>{test}</h1>
-        </div>
-    )
+  return (
+    <div>
+      <h2>test below</h2>
+      <h1>{test}</h1>
+    </div>
+  )
 }
