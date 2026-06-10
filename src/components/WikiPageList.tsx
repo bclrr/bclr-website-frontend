@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react"
 import { getPages } from "../services/api";
-import { type WikiPagesResponse } from "../types";
+import { type WikiPagesPaginated } from "../types";
 
-function WikiPages() {
+export function WikiPageList({ onSelect }: { onSelect: (slug: string) => void }) {
 
-  const [pages, setPages] = useState<WikiPagesResponse | null>(null);
+  const [pages, setPages] = useState<WikiPagesPaginated | null>(null);
 
   useEffect(() => {
     getPages().then(data => setPages(data));
@@ -12,11 +12,9 @@ function WikiPages() {
 
   if (!pages) return <p>Chargement...</p>;
   return pages.data.map(page => (
-    <div key={page.slug}>
+    <div key={page.slug} onClick={() => onSelect(page.slug)}>
       <p>{page.title}</p>
       <p>{page.categorie.label}</p>
     </div>
   ));
 }
-
-export default WikiPages;

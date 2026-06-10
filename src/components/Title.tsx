@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function Title() {
+export function Title() {
 
     const [test, setTest] = useState("");
 
@@ -17,5 +17,3 @@ function Title() {
         </div>
     )
 }
-
-export default Title

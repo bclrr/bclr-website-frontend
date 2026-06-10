@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router'
 import './index.css'
 
 import App from './App.tsx'
-import Title from './components/Title.tsx'
+import { Title } from './components'
 
 createRoot(document.getElementById('root')!).render(
   <BrowserRouter>

@@ -1,14 +1,15 @@
+import { useState } from 'react';
 import './App.css'
-import WikiPages from './components/WikiPages'
+import { WikiPage, WikiPageList } from './components'
 
 export default function App() {
+  const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
 
   return (
-    <>
-      <div className="card">
-        <WikiPages/>
-      </div>
-    </>
+    <div>
+      <WikiPageList onSelect={(slug: string) => setSelectedSlug(slug)} />
+      {selectedSlug && <WikiPage slug={selectedSlug} />}
+    </div>
   )
 }
 
