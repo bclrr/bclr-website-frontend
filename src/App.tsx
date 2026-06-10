@@ -1,15 +1,16 @@
-import { useState } from 'react';
-import './App.css'
+ import './App.css'
 import { Sidebar, WikiPage } from './components'
+import { useParams } from 'react-router';
 
 export default function App() {
-  const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
+
+  const { slug } = useParams();
 
   return (
     <div className='flex'>
-      <Sidebar onSelect={(slug: string) => setSelectedSlug(slug)} />
+      <Sidebar/>
       <main className="flex-1 p-8">
-        { selectedSlug && <WikiPage slug={selectedSlug} /> }
+        { slug && <WikiPage slug={slug} /> }
       </main>
     </div>
   )
