@@ -12,10 +12,16 @@ export function WikiPage({ slug }: { slug: string }) {
   }, [slug]);
 
   if(!page) return <p>Chargement...</p>;
-  console.log(JSON.stringify(page.content));
-  return <div className="prose text-left">
-    <h1 key={page.slug}>{page.title}</h1>
-    <Markdown>{page.content}</Markdown>
-  </div>
+
+  return (
+    <div className="prose text-left">
+      <h1 key={page.slug} className="text-5xl font-bold text-heading">
+        {page.title}
+      </h1>
+      <Markdown>
+        {page.content}
+      </Markdown>
+    </div>
+  )
 
 }
