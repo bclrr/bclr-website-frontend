@@ -1,6 +1,6 @@
 import axios from "axios";
 import type { WikiPagesPaginatedModel, WikiPageModel, UserModel } from "../types";
-import type { SignInDto } from "../dto";
+import type { SignInDto, SignUpDto } from "../dto";
 
 const BASE_URL = import.meta.env.VITE_API_URL;
 
@@ -21,5 +21,10 @@ export async function getOnePage(slug: string) {
 
 export async function signIn(data: SignInDto) {
   const response = await api.post<UserModel>("auth/signin", data);
+  return response.data;
+}
+
+export async function signUp(data: SignUpDto) {
+  const response = await api.post<UserModel>("auth/signup", data);
   return response.data;
 }

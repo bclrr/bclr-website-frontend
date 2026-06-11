@@ -1,10 +1,10 @@
-import { useForm } from "react-hook-form"
-import type { SignInDto } from "../dto";
+import { useForm } from "react-hook-form";
+import type { SignUpDto } from "../dto";
 import { Link, useNavigate } from "react-router";
-import { signIn } from "../services/api";
 import axios from "axios";
+import { signUp } from "../services/api";
 
-export function SignIn() {
+export function SignUp() {
 
   const naviguate = useNavigate();
   const {
@@ -12,15 +12,15 @@ export function SignIn() {
     handleSubmit,
     setError,
     formState: { errors },
-  } = useForm<SignInDto>();
+  } = useForm<SignUpDto>();
 
-  const onSubmit = async (data: SignInDto) => {
+  const onSubmit = async (data: SignUpDto) => {
     try {
-      await signIn(data);
+      await signUp(data);
       naviguate('/');
     } catch (e) {
       if (axios.isAxiosError(e)) {
-        setError("root", { message: "Identifiants incorrects" })
+        setError("root", { message: "Identifiants invalide" })
       }
     }
   }
@@ -33,11 +33,15 @@ export function SignIn() {
       <div className="min-h-screen flex flex-col items-center justify-center">
         <div className="max-w-md w-full">
           <div className="p-6 rounded-lg bg-white border border-slate-300 shadow-xs md:p-8 dark:bg-neutral-800 dark:border-neutral-700">
-            <h1 className="text-slate-900 text-center text-3xl font-bold dark:text-slate-50">Se connecter</h1>
+            <h1 className="text-slate-900 text-center text-3xl font-bold dark:text-slate-50">Créer un compte</h1>
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 mt-10">
               <div>
-                <label htmlFor="identifier" className={labelClass}>Nom d'utilisateur / Email</label>
-                <input id="identifier" type="text" {...register("identifier", { required: true})} className={inputClass}/>
+                <label htmlFor="username" className={labelClass}>Nom d'utilisateur</label>
+                <input id="username" type="text" {...register("username", { required: true})} className={inputClass}/>
+              </div>
+              <div>
+                <label htmlFor="email" className={labelClass}>Email</label>
+                <input id="email" type="email" {...register("email", { required: true})} className={inputClass}/>
               </div>
               <div>
                 <label htmlFor="password" className={labelClass}>Mot de passe</label>
@@ -49,14 +53,14 @@ export function SignIn() {
               <button
                   type="submit"
                   className="w-full py-2 px-3.5 text-sm rounded-md font-semibold cursor-pointer tracking-wide text-white border border-blue-600 bg-blue-600 hover:bg-blue-700 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500">
-                  Se connecter
+                  Créer un compte
               </button>
               <div className="text-slate-900 text-sm text-center dark:text-slate-50">
-                Vous n'avez pas de compte?
+                Déjà un compte ?
                 <Link
-                  to="/auth/register"
+                  to="/auth/login"
                   className="text-blue-700 hover:underline ml-1 font-medium dark:text-blue-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded">
-                  Créer un compte
+                  Se connecter
                 </Link>
               </div>
             </form>
