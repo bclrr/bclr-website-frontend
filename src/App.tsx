@@ -1,4 +1,4 @@
- import './App.css'
+import './App.css'
 import { Sidebar, WikiPage } from './components'
 import { useParams } from 'react-router';
 

@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { type WikiPageType } from "../types";
 import { getOnePage } from "../services/api";
 import Markdown from "react-markdown";
+import type { WikiPageModel } from "../types";
 
 export function WikiPage({ slug }: { slug: string }) {
 
-  const [page, setPage] = useState<WikiPageType | null>(null);
+  const [page, setPage] = useState<WikiPageModel | null>(null);
 
   useEffect(() => {
     getOnePage(slug).then(data => setPage(data));

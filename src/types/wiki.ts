@@ -1,21 +1,21 @@
-import type { PaginatedData } from "./common";
-import type { UserRef } from "./user";
+import type { PaginatedModel } from "./common";
+import type { UserRefModel } from "./user";
 
-export type CategorieType = {
+export type CategorieModel = {
   id: number;
   label: string;
   slug: string;
 }
 
-export type WikiPageType = {
+export type WikiPageModel = {
   slug: string;
   title: string;
   content: string | undefined;
   createdAt: string;
   updatedAt: string;
-  categorie: CategorieType;
-  createdBy: UserRef;
-  updatedBy: UserRef | null;
+  categorie: CategorieModel;
+  createdBy: UserRefModel;
+  updatedBy: UserRefModel | null;
 }
 
-export type WikiPagesPaginatedType = PaginatedData<WikiPageType>;
+export type WikiPagesPaginatedModel = PaginatedModel<WikiPageModel>;
