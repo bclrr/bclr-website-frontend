@@ -1,13 +1,13 @@
-import type { PaginatedResponse } from "./common";
+import type { PaginatedData } from "./common";
 import type { UserRef } from "./user";
 
-export interface CategorieType {
+export type CategorieType = {
   id: number;
   label: string;
   slug: string;
 }
 
-export interface WikiPageType {
+export type WikiPageType = {
   slug: string;
   title: string;
   content: string | undefined;
@@ -18,4 +18,4 @@ export interface WikiPageType {
   updatedBy: UserRef | null;
 }
 
-export type WikiPagesPaginated = PaginatedResponse<WikiPageType>;
+export type WikiPagesPaginatedType = PaginatedData<WikiPageType>;

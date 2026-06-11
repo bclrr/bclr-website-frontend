@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react"
 import { getPages } from "../services/api";
-import { type WikiPagesPaginated } from "../types";
+import { type WikiPagesPaginatedType } from "../types";
 import { Link } from "react-router";
 
 export function Sidebar() {
 
-  const [pages, setPages] = useState<WikiPagesPaginated | null>(null);
+  const [pages, setPages] = useState<WikiPagesPaginatedType | null>(null);
 
   useEffect(() => {
     getPages().then(data => setPages(data));

@@ -1,5 +1,5 @@
 import axios from "axios";
-import type { WikiPagesPaginated, WikiPageType } from "../types";
+import type { WikiPagesPaginatedType, WikiPageType } from "../types";
 
 const BASE_URL = import.meta.env.VITE_API_URL;
 
@@ -9,7 +9,7 @@ const api = axios.create({
 });
 
 export async function getPages() {
-  const response = await api.get<WikiPagesPaginated>("wiki/page");
+  const response = await api.get<WikiPagesPaginatedType>("wiki/page");
   return response.data;
 }
 
