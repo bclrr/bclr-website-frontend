@@ -21,8 +21,15 @@ export default {
               fontSize: '0.875em',
             },
           },
-        }
-      }
+        },
+      },
+      fontFamily: {
+        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'],
+      },
+      colors: {
+        'soft': 'rgb(246 246 247)',
+        'info': 'rgb(103 103 108)',
+      },
     },
   },
   plugins: [

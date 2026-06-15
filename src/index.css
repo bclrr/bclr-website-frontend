@@ -3,13 +3,17 @@
 @tailwind utilities;
 
 :root {
-  font-family: 'Inter', system-ui, sans-serif;
   background-color: #ffffff;
   color: #2c3e50;
   -webkit-font-smoothing: antialiased;
+  --content-offset: max(0px, calc((100vw - 1440px) / 2));
 }
 
 .prose h2 {
-  border-top: 1px solid #e2e2e3;
+  border-top: 1px solid #e2e2e3;  
   padding-top: 0.3rem;
+}
+
+html {
+  scrollbar-gutter: stable;
 }
