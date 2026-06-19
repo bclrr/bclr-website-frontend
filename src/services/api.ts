@@ -1,5 +1,5 @@
 import axios from "axios";
-import type { WikiPagesPaginatedModel, WikiPageModel, UserModel } from "../types";
+import type { PageModel, UserModel, CategorieWithPagesModel } from "../types";
 import type { SignInDto, SignUpDto } from "../dto";
 
 const BASE_URL = import.meta.env.VITE_API_URL;
@@ -9,13 +9,13 @@ const api = axios.create({
   withCredentials: true,
 });
 
-export async function getPages() {
-  const response = await api.get<WikiPagesPaginatedModel>("wiki/page");
+export async function getPagesByCategories() {
+  const response = await api.get<CategorieWithPagesModel[]>("wiki/categorie", {params: {"include" : "pages" } });
   return response.data;
 }
 
 export async function getOnePage(slug: string) {
-  const response = await api.get<WikiPageModel>("wiki/page/" + slug);
+  const response = await api.get<PageModel>("wiki/page/" + slug);
   return response.data;
 }
 

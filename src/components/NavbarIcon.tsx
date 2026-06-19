@@ -7,8 +7,8 @@ export function NavbarIcon({bgColor = "bg-white", className = ""} : {
 
   return (
     <div className={`flex items-center gap-2 h-14 ${bgColor} ${className}`}>
-      <img src={logo} className="h-12 w-12 rounded-full"></img>
-      <span className='text-lg font-semibold text-gray-900'>Octania Wiki</span>
+      <img src={logo} alt="octania logo" className="h-12 w-12 rounded-full"></img>
+      <span className='text-lg font-semibold text-gray-900 whitespace-nowrap'>Octania Wiki</span>
     </div>
   )
 }

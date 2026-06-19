@@ -5,9 +5,20 @@ export type CategorieModel = {
   id: number;
   label: string;
   slug: string;
+  isActive?: boolean;
 }
 
-export type WikiPageModel = {
+export interface PageSummaryModel {
+  id: number;
+  title: string;
+  slug: string;
+}
+
+export interface CategorieWithPagesModel extends CategorieModel {
+  pages: PageSummaryModel[];
+}
+
+export type PageModel = {
   slug: string;
   title: string;
   content: string | undefined;
@@ -18,4 +29,4 @@ export type WikiPageModel = {
   updatedBy: UserRefModel | null;
 }
 
-export type WikiPagesPaginatedModel = PaginatedModel<WikiPageModel>;
+export type PagesPaginatedModel = PaginatedModel<PageModel>;
